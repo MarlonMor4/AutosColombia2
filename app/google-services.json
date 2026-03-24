@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "52840537794",
+    "firebase_url": "https://autoscolombia-5f916-default-rtdb.firebaseio.com",
+    "project_id": "autoscolombia-5f916",
+    "storage_bucket": "autoscolombia-5f916.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:52840537794:android:01abfa83307f476c0aa55b",
+        "android_client_info": {
+          "package_name": "com.example.autoscolombia"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC1nOhpyQu6NOoQCPwOq7u739WEc6OKfbE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

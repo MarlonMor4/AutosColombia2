@@ -25,35 +25,42 @@ public class GestionCeldasActivity extends AppCompatActivity {
         lvCeldas = findViewById(R.id.lvCeldas);
         db = FirebaseDatabase.getInstance().getReference("celdas");
 
-        // Inicializar celdas si no existen
+        // Inicializar celdas si aún no existen en Firebase
         db.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
-                if(!snapshot.exists()){
-                    for(int i=1;i<=maxCeldas;i++){
+                if (!snapshot.exists()) {
+                    for (int i = 1; i <= maxCeldas; i++) {
                         String id = db.push().getKey();
-                        db.child(id).setValue(new Celda(id,"C"+i,"LIBRE",""));
+                        db.child(id).setValue(new Celda(id, "C" + i, "LIBRE", ""));
                     }
                 }
             }
             @Override public void onCancelled(DatabaseError error) {}
         });
 
-        // Mostrar celdas y actualizar en tiempo real
+        // Escuchar cambios en tiempo real
         db.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
                 listaCeldas.clear();
                 List<String> display = new ArrayList<>();
-                for(DataSnapshot data:snapshot.getChildren()){
+
+                for (DataSnapshot data : snapshot.getChildren()) {
                     Celda celda = data.getValue(Celda.class);
-                    if(celda != null){
-                        listaCeldas.add(celda);
-                        String texto = celda.numero + " - " + celda.estado;
-                        if(!celda.placa.isEmpty()) texto += " (" + celda.placa + ")";
-                        display.add(texto);
-                    }
+                    if (celda == null) continue;
+
+                    // BUG FIX: celda.placa puede ser null; se usa texto seguro
+                    String placaInfo = (celda.placa != null && !celda.placa.isEmpty())
+                            ? " (" + celda.placa + ")" : "";
+
+                    String icono = "OCUPADA".equals(celda.estado) ? "🔴" : "🟢";
+                    String texto = icono + " " + celda.numero + " — " + celda.estado + placaInfo;
+
+                    listaCeldas.add(celda);
+                    display.add(texto);
                 }
+
                 adapter = new ArrayAdapter<>(GestionCeldasActivity.this,
                         android.R.layout.simple_list_item_1, display);
                 lvCeldas.setAdapter(adapter);

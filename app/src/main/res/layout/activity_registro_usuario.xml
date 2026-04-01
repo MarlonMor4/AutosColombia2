@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:padding="16dp"
     android:layout_width="match_parent"
@@ -37,7 +38,9 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/txtPlaca"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:inputType="textCapCharacters"
+            android:textAllCaps="true"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <!-- Botones Guardar y Ver -->
@@ -68,11 +71,51 @@
             android:layout_marginStart="8dp"/>
     </LinearLayout>
 
-    <!-- ListView de Usuarios -->
+    <!-- ── Tarjeta de estado mensualidad (visible al seleccionar usuario) ── -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardMensualidad"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:visibility="gone"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="4dp">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:padding="14dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!-- Estado de mensualidad -->
+            <TextView
+                android:id="@+id/txtEstadoMensualidad"
+                android:text="Verificando mensualidad..."
+                android:textSize="14sp"
+                android:textColor="#3C4043"
+                android:layout_marginBottom="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <!-- Botón pagar mensualidad -->
+            <Button
+                android:id="@+id/btnPagarMensualidad"
+                android:text="💳  PAGAR MENSUALIDAD"
+                android:backgroundTint="#6A1B9A"
+                android:textColor="#FFFFFF"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                app:cornerRadius="8dp"/>
+
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- Lista de Usuarios -->
     <TextView
-        android:text="Lista de Usuarios"
-        android:textSize="18sp"
+        android:text="Lista de Usuarios  (toque para editar · mantenga para eliminar)"
+        android:textSize="14sp"
         android:textStyle="bold"
+        android:textColor="#555555"
         android:layout_marginTop="16dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>

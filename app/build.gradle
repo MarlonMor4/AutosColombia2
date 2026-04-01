@@ -1,16 +1,12 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
-    alias(libs.plugins.kotlin.compose)
     id 'com.google.gms.google-services'
-
-
 }
 
 android {
     namespace 'com.example.autoscolombia'
     compileSdk 36
-
 
     defaultConfig {
         applicationId "com.example.autoscolombia"
@@ -35,46 +31,22 @@ android {
     kotlinOptions {
         jvmTarget = '11'
     }
-    buildFeatures {
-        compose false
-
-    }
 }
 
 dependencies {
-
+    // AndroidX & Material
     implementation 'androidx.appcompat:appcompat:1.6.1'
-
-    // 🔥 MATERIAL DESIGN
     implementation 'com.google.android.material:material:1.11.0'
-    implementation 'androidx.core:core-ktx:1.13.1'
-    implementation 'androidx.appcompat:appcompat:1.6.1'
-
-    // 🔥 MATERIAL DESIGN 3
-
-
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
-    // 🔥 FIREBASE
-    implementation 'com.google.firebase:firebase-database:20.3.0'
-    implementation platform('com.google.firebase:firebase-bom:34.11.0')
     implementation libs.androidx.core.ktx
-    implementation 'com.google.android.material:material:1.11.0'
-    implementation libs.androidx.lifecycle.runtime.ktx
-    implementation libs.androidx.activity.compose
-    implementation platform(libs.androidx.compose.bom)
-    implementation libs.androidx.ui
-    implementation libs.androidx.ui.graphics
-    implementation libs.androidx.ui.tooling.preview
-    implementation libs.androidx.material3
-    implementation libs.androidx.appcompat
-    implementation libs.material
     implementation libs.androidx.activity
-    implementation libs.androidx.constraintlayout
+
+    // Firebase (BOM gestiona versiones automáticamente)
+    implementation platform('com.google.firebase:firebase-bom:33.6.0')
+    implementation 'com.google.firebase:firebase-database'
+
+    // Tests
     testImplementation libs.junit
     androidTestImplementation libs.androidx.junit
     androidTestImplementation libs.androidx.espresso.core
-    androidTestImplementation platform(libs.androidx.compose.bom)
-    androidTestImplementation libs.androidx.ui.test.junit4
-    debugImplementation libs.androidx.ui.tooling
-    debugImplementation libs.androidx.ui.test.manifest
 }

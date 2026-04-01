@@ -1,4 +1,3 @@
-// File: MainActivity.java
 package com.example.autoscolombia;
 
 import android.content.Intent;
@@ -8,7 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button btnUsuarios, btnCeldas, btnEntradas;
+    Button btnUsuarios, btnCeldas, btnEntradas, btnPagos;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,8 +15,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         btnUsuarios = findViewById(R.id.btnUsuarios);
-        btnCeldas = findViewById(R.id.btnCeldas);
+        btnCeldas   = findViewById(R.id.btnCeldas);
         btnEntradas = findViewById(R.id.btnEntradas);
+        btnPagos    = findViewById(R.id.btnPagos);
 
         btnUsuarios.setOnClickListener(v ->
                 startActivity(new Intent(this, RegistroUsuarioActivity.class)));
@@ -27,5 +27,8 @@ public class MainActivity extends AppCompatActivity {
 
         btnEntradas.setOnClickListener(v ->
                 startActivity(new Intent(this, EntradaSalidaActivity.class)));
+
+        btnPagos.setOnClickListener(v ->
+                startActivity(new Intent(this, GestionPagosActivity.class)));
     }
 }

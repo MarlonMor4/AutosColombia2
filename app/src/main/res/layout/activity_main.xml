@@ -16,52 +16,92 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
+            <!-- Logo / Título -->
             <TextView
                 android:text="🚗 Autos Colombia"
-                android:textSize="26sp"
+                android:textSize="28sp"
                 android:textStyle="bold"
                 android:textColor="@color/primary"
-                android:layout_marginBottom="20dp"
+                android:layout_marginBottom="8dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
 
+            <TextView
+                android:text="Sistema de Gestión de Parqueadero"
+                android:textSize="14sp"
+                android:textColor="#757575"
+                android:layout_marginBottom="28dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <!-- Botón Usuarios -->
             <com.google.android.material.card.MaterialCardView
                 android:layout_marginBottom="16dp"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="4dp">
                 <Button
                     android:id="@+id/btnUsuarios"
-                    android:text="Gestión de Usuarios"
-                    android:textSize="18sp"
+                    android:text="👤  Gestión de Usuarios"
+                    android:textSize="17sp"
                     android:backgroundTint="@color/primary"
                     android:textColor="#FFF"
+                    android:padding="18dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
             </com.google.android.material.card.MaterialCardView>
 
+            <!-- Botón Celdas -->
             <com.google.android.material.card.MaterialCardView
                 android:layout_marginBottom="16dp"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="4dp">
                 <Button
                     android:id="@+id/btnCeldas"
-                    android:text="Gestión de Celdas"
-                    android:textSize="18sp"
+                    android:text="🅿️  Gestión de Celdas"
+                    android:textSize="17sp"
                     android:backgroundTint="@color/accent"
                     android:textColor="#FFF"
+                    android:padding="18dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
             </com.google.android.material.card.MaterialCardView>
 
+            <!-- Botón Entradas/Salidas -->
             <com.google.android.material.card.MaterialCardView
+                android:layout_marginBottom="16dp"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="4dp">
                 <Button
                     android:id="@+id/btnEntradas"
-                    android:text="Entradas / Salidas"
-                    android:textSize="18sp"
+                    android:text="🚘  Entradas / Salidas"
+                    android:textSize="17sp"
                     android:backgroundTint="#FB8C00"
                     android:textColor="#FFF"
+                    android:padding="18dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Botón Pagos (Iteración 3) -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_marginBottom="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="4dp">
+                <Button
+                    android:id="@+id/btnPagos"
+                    android:text="💳  Gestión de Pagos"
+                    android:textSize="17sp"
+                    android:backgroundTint="#6A1B9A"
+                    android:textColor="#FFF"
+                    android:padding="18dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
             </com.google.android.material.card.MaterialCardView>
